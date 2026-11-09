@@ -12,10 +12,6 @@ The pulse oximeter firmware was developed using the Arduino Integrated Developme
 Download and install the latest compatible version of Arduino IDE from https://www.arduino.cc/en/software.
 
 ### 2. Install ESP32 Board Support
-1. Open Arduino IDE and navigate to **File → Preferences**.
-2. Under **Additional Boards Manager URLs**, add the following URL:
-
-   `https://espressif.github.io/arduino-esp32/package_esp32_index.json`
 
 3. Navigate to **Tools → Board → Boards Manager**.
 4. Search for **esp32**.
@@ -26,14 +22,20 @@ Download and install the latest compatible version of Arduino IDE from https://w
 1. Navigate to **Sketch → Include Library → Manage Libraries**.
 2. Search for **SparkFun MAX3010x Sensor Library**.
 3. Install the library developed by SparkFun Electronics.
+4. Search for **AdvancedOximeter**.
+5. Install the library developed by Jaikulk.
 
-The library provides the functions required to configure and communicate with the MAX30105 optical sensor. The firmware also uses Maxim Integrated's SpO₂ and heart-rate algorithm, which is included in the SparkFun MAX3010x Sensor Library.
+Both libraries provide the functions required to configure and communicate with the MAX30105 optical sensor. The firmware also uses Maxim Integrated's SpO₂ and heart-rate algorithm, which is included in the SparkFun MAX3010x Sensor Library.
 
 ### 4. Configure the Microcontroller Connection
 1. Connect the ESP32 programming interface to the computer using a USB cable.
-2. Install the appropriate USB-to-UART driver if the computer does not recognize the device.
+2. Install the appropriate USB-to-UART driver if the computer does not recognize the device. 
 3. In Arduino IDE, navigate to **Tools → Port** and select the corresponding COM port.
 4. Verify that the correct ESP32 board configuration has been selected.
+
+If your computer does not recognize the connection between the ESP32 and your computer, download the designated driver from this link: https://www.silabs.com/software-and-tools/usb-to-uart-bridge-vcp-drivers?tab=overview
+
+After downloading, go to device manager in your computer and look for the USB connection. Once you find the connection, update the drivers using the files that you downloaded.
 
 ### 5. Compile and Upload the Firmware
 1. Download the source code from this repository.
@@ -44,4 +46,4 @@ The library provides the functions required to configure and communicate with th
 6. Open the **Serial Monitor** and set the baud rate to **115200** to observe the SpO₂ and heart-rate measurements.
 
 ### Code Attribution
-The firmware incorporates source code from the SparkFun MAX3010x Sensor Library and the Maxim Integrated SpO₂ algorithm. Additional functionality was developed with AI assistance and subsequently reviewed and debugged by the project team.
+The firmware incorporates source code from the SparkFun MAX3010x Sensor Library, AdvancedOximetry Library and the Maxim Integrated SpO₂ algorithm. Additional functionality was developed with AI assistance and subsequently reviewed and debugged by the project team.
